@@ -1,9 +1,12 @@
 import './App.css';
+import Board from 'components/Board/Board';
 
 const App = () => {
     return (
-        <div>Boilerplate is ready</div>
-    )
-}
+        <>
+            <Board/>
+        </>
+    );
+};
 
 export default App;
