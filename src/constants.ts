@@ -48,23 +48,28 @@ export enum Outcomes {
 export interface OutcomeValue {
   value: Outcomes;
   name: string;
+  cssClass: string;
 }
 
 export const OutcomeValues: OutcomeValue[] = [
   {
     value: Outcomes.Initial,
     name: '–',
+    cssClass: 'text--initial',
   },
   {
     value: Outcomes.Tie,
     name: 'Tie',
+    cssClass: 'text--neutral',
   },
   {
     value: Outcomes.PlayerWon,
     name: 'You won!',
+    cssClass: 'text--win',
   },
   {
     value: Outcomes.ComputerWon,
-    name: 'Computer won :(',
+    name: 'Computer won',
+    cssClass: 'text--lose',
   },
 ];

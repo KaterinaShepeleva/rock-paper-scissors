@@ -1,6 +1,6 @@
 const Rules = () => (
     <div className="rules">
-        <h3>Rules of the game</h3>
+        <h2>Rules of the game</h2>
         <p>
             An easily memorised rule determines the winner:
             “Rock breaks scissors, scissors cuts paper, paper covers rock.”

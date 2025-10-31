@@ -49,7 +49,7 @@ const App = () => {
 
     return (
         <div className="container">
-            <h1>Rock, paper, scissors</h1>
+            <h1>Rock Paper Scissors</h1>
 
             <div className="wrapper">
                 <main className="board-container">
