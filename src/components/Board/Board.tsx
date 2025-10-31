@@ -39,26 +39,31 @@ const Board = ({ recordOutcome }: BoardProps) => {
 
     return (
         <div className="board">
-            <GameButton
-                text={GameValues[0].name}
-                img={rockImg}
-                handleClick={() => makePlayerChoice(GameValues[0])}
-            />
-            <GameButton
-                text={GameValues[1].name}
-                img={paperImg}
-                handleClick={() => makePlayerChoice(GameValues[1])}
-            />
-            <GameButton
-                text={GameValues[2].name}
-                img={scissorsImg}
-                handleClick={() => makePlayerChoice(GameValues[2])}
-            />
+            <div className="buttons-wrapper">
+                <GameButton
+                    text={GameValues[0].name}
+                    img={rockImg}
+                    handleClick={() => makePlayerChoice(GameValues[0])}
+                />
+                <GameButton
+                    text={GameValues[1].name}
+                    img={paperImg}
+                    handleClick={() => makePlayerChoice(GameValues[1])}
+                />
+                <GameButton
+                    text={GameValues[2].name}
+                    img={scissorsImg}
+                    handleClick={() => makePlayerChoice(GameValues[2])}
+                />
+            </div>
 
             <ul className="game-outcome">
                 <li>You chose: <strong>{getUiString(playerChoice)}</strong></li>
                 <li>Computer chose: <strong>{getUiString(computerChoice)}</strong></li>
-                <li>Outcome: <strong>{OutcomeValues[outcome].name}</strong></li>
+                <li>
+                    Outcome:&nbsp;
+                    <strong className={OutcomeValues[outcome].cssClass}>{OutcomeValues[outcome].name}</strong>
+                </li>
             </ul>
         </div>
     );

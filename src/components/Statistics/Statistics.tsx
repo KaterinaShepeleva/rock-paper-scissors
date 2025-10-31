@@ -6,6 +6,12 @@ interface StatisticsProps extends Score {
 }
 
 const Statistics = (props: StatisticsProps) => {
+    const {
+        player,
+        computer,
+        overall,
+        resetScore,
+    } = props;
     let ties = props.overall - props.player - props.computer;
 
     if (ties < 0) {
@@ -14,24 +20,38 @@ const Statistics = (props: StatisticsProps) => {
 
     return (
         <div className="stats">
-            <h3>Overall game score</h3>
+            <h2>Overall game score</h2>
 
             <ul>
-                <li>You won: <strong className="stats-player">{props.player}</strong>&nbsp;times</li>
-                <li>Computer won: <strong className="stats-comp">{props.computer}</strong>&nbsp;times</li>
-                <li>Tie: <strong className="stats-tie">{ties}</strong>&nbsp;times</li>
-                <li>Overall: <strong className="stats-all">{props.overall}</strong>&nbsp;games</li>
+                <li>
+                    You won: <strong className="text--win">{player}</strong>
+                    &nbsp;{getPlural(player)}
+                </li>
+                <li>
+                    Computer won: <strong className="text--lose">{computer}</strong>
+                    &nbsp;{getPlural(computer)}
+                </li>
+                <li>
+                    Tie: <strong className="text--neutral">{ties}</strong>
+                    &nbsp;{getPlural(ties)}
+                </li>
+                <li>
+                    Game played: <strong>{overall}</strong>
+                    &nbsp;{getPlural(overall)}
+                </li>
             </ul>
 
             <button
                 type="button"
                 className="btn-reset"
-                onClick={props.resetScore}
+                onClick={resetScore}
             >
                 Reset stats
             </button>
         </div>
     )
 };
+
+const getPlural = (num: number) => num === 1 ? 'time' : 'times';
 
 export default Statistics;
