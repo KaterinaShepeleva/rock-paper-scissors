@@ -1,4 +1,4 @@
-export const STORAGE_KEY = 'rpc-storage';
+export const STORAGE_KEY = 'rps-storage';
 
 export interface Score {
   player: number;
