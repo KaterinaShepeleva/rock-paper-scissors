@@ -17,7 +17,11 @@ import {
 } from 'src/utils';
 import GameButton from 'components/GameButton/GameButton';
 
-const Board = () => {
+interface BoardProps {
+    recordOutcome(outcome: Outcomes): void;
+}
+
+const Board = ({ recordOutcome }: BoardProps) => {
     const [playerChoice, setPlayerChoice] = useState<GameValue | null>(null);
     const [computerChoice, setComputerChoice] = useState<GameValue | null>(null);
     const [outcome, setOutcome] = useState<Outcomes>(Outcomes.Initial);
@@ -30,7 +34,7 @@ const Board = () => {
         setComputerChoice(computerChoice);
         setOutcome(outcome);
 
-        // TODO: save to localStorage
+        recordOutcome(outcome);
     };
 
     return (

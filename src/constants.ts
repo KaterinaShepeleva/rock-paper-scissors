@@ -1,8 +1,16 @@
-export enum StorageKeys {
-  Player = 'rps-player',
-  Computer = 'rps-computer',
-  Overall = 'rps-overall',
+export const STORAGE_KEY = 'rpc-storage';
+
+export interface Score {
+  player: number;
+  computer: number;
+  overall: number;
 }
+
+export const initialGameState: Score = {
+  player: 0,
+  computer: 0,
+  overall: 0,
+};
 
 export enum Values {
   Rock,

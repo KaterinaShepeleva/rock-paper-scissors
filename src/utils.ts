@@ -1,10 +1,12 @@
 import {
+    STORAGE_KEY,
     Values,
     GameValue,
     GameValues,
     Outcomes,
+    Score,
+    initialGameState,
 } from './constants';
-
 
 export const getComputerTurn = (): GameValue => {
     const turn: number = Math.floor(Math.random() * GameValues.length);
@@ -27,4 +29,13 @@ export const determineOutcome = (player: Values, computer: Values): Outcomes => 
         default:
             return Outcomes.Tie;
     }
+}
+
+export const getStorageScore = (): Score => {
+    const lsValue = localStorage.getItem(STORAGE_KEY);
+    return lsValue ? JSON.parse(lsValue) : { ...initialGameState };
+}
+
+export const setStorageScore = (score: Score): void => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(score));
 }
