@@ -11,6 +11,10 @@ import {
     Outcomes,
     OutcomeValues,
 } from 'src/constants';
+import {
+    getComputerTurn,
+    determineOutcome,
+} from 'src/utils';
 import GameButton from 'components/GameButton/GameButton';
 
 const Board = () => {
@@ -18,25 +22,33 @@ const Board = () => {
     const [computerChoice, setComputerChoice] = useState<GameValue | null>(null);
     const [outcome, setOutcome] = useState<Outcomes>(Outcomes.Initial);
 
+    const makePlayerChoice = (playerChoice: GameValue): void => {
+        const computerChoice: GameValue = getComputerTurn();
+        const outcome: Outcomes = determineOutcome(playerChoice.value, computerChoice.value);
+
+        setPlayerChoice(playerChoice);
+        setComputerChoice(computerChoice);
+        setOutcome(outcome);
+
+        // TODO: save to localStorage
+    };
+
     return (
         <div className="board">
             <GameButton
                 text={GameValues[0].name}
                 img={rockImg}
-                handleClick={() => console.log(GameValues[0].name)}
-                // handleClick={() => chooseValue(GameValues[0])}
+                handleClick={() => makePlayerChoice(GameValues[0])}
             />
             <GameButton
                 text={GameValues[1].name}
                 img={paperImg}
-                handleClick={() => console.log(GameValues[1].name)}
-                // handleClick={() => chooseValue(GameValues[1])}
+                handleClick={() => makePlayerChoice(GameValues[1])}
             />
             <GameButton
                 text={GameValues[2].name}
                 img={scissorsImg}
-                handleClick={() => console.log(GameValues[2].name)}
-                // handleClick={() => chooseValue(GameValues[2])}
+                handleClick={() => makePlayerChoice(GameValues[2])}
             />
 
             <ul className="game-outcome">
@@ -45,11 +57,11 @@ const Board = () => {
                 <li>Outcome: <strong>{OutcomeValues[outcome].name}</strong></li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
 const getUiString = (value: GameValue | null): string => {
     return value != null ? value.name : '–';
-}
+};
 
 export default Board;
