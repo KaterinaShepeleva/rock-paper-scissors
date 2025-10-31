@@ -1,0 +1,22 @@
+.stats-comp {
+    color: #e33a47;
+}
+
+.stats-player {
+    color: #1da565;
+}
+
+.stats-tie {
+    color: #777777;
+}
+
+.stats-all {
+    color: inherit;
+}
+
+.btn-reset {
+    margin: 18px 0;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+}
