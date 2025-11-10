@@ -12,5 +12,6 @@ Game demo: [katerinashepeleva.github.io/rock-paper-scissors](https://katerinashe
 ## Project stack
 
 - HTML, CSS
-- Typescript
-- React v19
+- TypeScript v5.9
+- React v19.1
+- Vite v7.1
